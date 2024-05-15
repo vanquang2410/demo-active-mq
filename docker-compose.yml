@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  activemq:
+    image: 'rmohr/activemq:latest'
+    container_name: 'activemq'
+    ports:
+      - '61616:61616'  # Port for ActiveMQ Openwire protocol
+      - '8161:8161'    # Port for ActiveMQ Web Console
+    environment:
+      ACTIVEMQ_ADMIN_LOGIN: admin
+      ACTIVEMQ_ADMIN_PASSWORD: admin
+    volumes:
+      - './data:/var/lib/activemq'  # Volume for persistence data
